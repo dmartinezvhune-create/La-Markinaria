@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Informe + Guía Operativa La Markinaria</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --void:#060606;
+    --void-soft:#0F0F0F;
+    --void-card:#131313;
+    --line:#242220;
+    --gold:#C9A84C;
+    --gold-soft:#C9A96E;
+    --gold-dim:#8E763A;
+    --ink:#EDE7D8;
+    --ink-dim:#B4AC98;
+    --ink-faint:#807A6C;
+    --radius:6px;
+    --maxw:880px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--void);
+    color:var(--ink);
+    font-family:'DM Sans',sans-serif;
+    font-size:16px;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,h4{
+    font-family:'Cormorant Garamond',serif;
+    color:var(--ink);
+    margin:0 0 .35em 0;
+    line-height:1.15;
+    font-weight:600;
+  }
+  .cinzel{font-family:'Cinzel',serif;}
+  a{color:var(--gold);}
+
+  .shell{display:flex; min-height:100vh;}
+  nav.sidebar{
+    width:256px; flex:0 0 256px;
+    background:var(--void-soft);
+    border-right:1px solid var(--line);
+    color:#C9C3B4;
+    position:sticky; top:0; height:100vh;
+    overflow-y:auto;
+    padding:32px 22px 40px;
+  }
+  .brandmark{display:flex; align-items:center; gap:12px; margin-bottom:6px;}
+  .brandmark svg{width:36px; height:36px; flex:0 0 auto;}
+  .brand-name{font-family:'Cinzel',serif; font-weight:600; font-size:.98rem; color:#fff; letter-spacing:.06em;}
+  .brand-name .search{color:var(--gold);}
+  .brand-tagline{
+    font-size:.65rem; letter-spacing:.16em; text-transform:uppercase;
+    color:var(--gold-dim); margin:2px 0 6px 48px;
+  }
+  .brand-client{
+    font-size:.72rem; margin:0 0 24px 48px; color:var(--ink-faint);
+  }
+  .brand-client strong{color:var(--gold-soft);}
+  nav.sidebar .nav-group-label{
+    font-size:.66rem; text-transform:uppercase; letter-spacing:.12em;
+    color:var(--ink-faint); margin:22px 0 8px;
+  }
+  nav.sidebar a{
+    display:block; color:#B4AC98; text-decoration:none;
+    font-size:.87rem; padding:6px 0 6px 12px; border-left:2px solid transparent;
+    transition:.15s;
+  }
+  nav.sidebar a:hover{color:var(--gold-soft); border-left-color:var(--gold);}
+  nav.sidebar a.sourced{color:var(--ink); font-weight:700;}
+  nav.sidebar a.sourced:hover{color:var(--gold-soft);}
+  nav.sidebar .quicklinks{margin-top:28px; padding-top:18px; border-top:1px solid var(--line);}
+  nav.sidebar .quicklinks a{
+    background:rgba(201,168,76,.08); border-radius:4px; margin-bottom:6px;
+    padding:9px 10px 9px 12px; border-left:2px solid var(--gold); font-size:.81rem; color:var(--gold-soft);
+  }
+
+  main{flex:1; min-width:0;}
+
+  .topbar{
+    background:var(--void-card); color:var(--ink-dim);
+    padding:14px 44px; display:flex; gap:26px; flex-wrap:wrap;
+    align-items:center; font-size:.82rem;
+    border-bottom:1px solid var(--gold-dim);
+  }
+  .topbar strong{color:var(--gold); font-weight:600;}
+  .topbar .divider{width:1px; height:14px; background:var(--line);}
+
+  .hero{
+    padding:64px 44px 46px;
+    background:
+      radial-gradient(ellipse at 88% -10%, rgba(201,168,76,.10), transparent 55%),
+      var(--void);
+    border-bottom:1px solid var(--line);
+  }
+  .hero .eyebrow{
+    font-size:.72rem; letter-spacing:.18em; text-transform:uppercase;
+    color:var(--gold); font-weight:600; margin-bottom:16px;
+    display:flex; align-items:center; gap:10px;
+    font-family:'Cinzel',serif;
+  }
+  .hero h1{font-size:2.7rem; max-width:760px; font-weight:600; color:#fff;}
+  .hero .lede{max-width:660px; font-size:1.06rem; color:var(--ink-dim); margin-top:16px;}
+  .hero .promise{
+    margin-top:26px; padding:20px 24px; background:var(--void-card);
+    border-left:2px solid var(--gold); border-radius:0 6px 6px 0;
+    max-width:660px; font-family:'Cormorant Garamond',serif; font-size:1.25rem;
+    font-weight:600; font-style:italic; color:var(--gold-soft);
+  }
+
+  section{padding:52px 44px; max-width:var(--maxw); margin:0 auto; border-bottom:1px solid var(--line);}
+  section:last-of-type{border-bottom:none;}
+  .section-tag{
+    font-size:.7rem; letter-spacing:.16em; text-transform:uppercase;
+    color:var(--gold-dim); font-weight:600; margin-bottom:8px; font-family:'Cinzel',serif;
+  }
+  section h2{font-size:1.75rem; margin-bottom:.3em; color:#fff;}
+  section h3{font-size:1.18rem; margin-top:28px; color:var(--gold-soft); font-weight:600;}
+  section p{color:var(--ink-dim); max-width:70ch;}
+  .subnote{color:var(--ink-faint); font-size:.88rem;}
+
+  .seal-divider{
+    display:flex; align-items:center; gap:14px; margin:0 44px;
+    max-width:var(--maxw); margin-left:auto; margin-right:auto;
+  }
+  .seal-divider .line{flex:1; height:1px; background:linear-gradient(90deg,var(--line),transparent);}
+  .seal-divider .line.right{background:linear-gradient(90deg,transparent,var(--line));}
+  .seal-divider svg{width:22px; height:22px;}
+
+  .grid-2{display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:18px;}
+  .grid-3{display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:18px;}
+  .card{
+    background:var(--void-card); border:1px solid var(--line);
+    border-radius:var(--radius); padding:18px 20px;
+  }
+  .card h4{font-size:1.02rem; margin-bottom:6px; color:var(--ink);}
+  .card p{margin:0; font-size:.9rem; color:var(--ink-dim);}
+  .pill{
+    display:inline-block; font-size:.68rem; font-weight:600; letter-spacing:.06em; text-transform:uppercase;
+    padding:3px 10px; border-radius:2px; background:rgba(201,168,76,.1); color:var(--gold);
+    margin-bottom:8px; border:1px solid var(--gold-dim); font-family:'Cinzel',serif;
+  }
+
+  table{width:100%; border-collapse:collapse; margin-top:18px; font-size:.9rem; background:var(--void-card); border-radius:var(--radius); overflow:hidden;}
+  thead th{
+    background:#000; color:var(--gold); text-align:left; padding:11px 14px;
+    font-size:.72rem; text-transform:uppercase; letter-spacing:.08em; font-weight:600; font-family:'Cinzel',serif;
+    border-bottom:1px solid var(--gold-dim);
+  }
+  tbody td{padding:11px 14px; border-bottom:1px solid var(--line); vertical-align:top; color:var(--ink-dim);}
+  tbody tr:last-child td{border-bottom:none;}
+  tbody tr:nth-child(even){background:rgba(255,255,255,.015);}
+  td.label{font-weight:600; color:var(--ink); white-space:nowrap;}
+
+  .phase{display:grid; grid-template-columns:44px 1fr; gap:18px; margin-top:22px;}
+  .phase .num{
+    width:44px; height:44px; border-radius:50%; background:#000; border:1px solid var(--gold-dim);
+    color:var(--gold); display:flex; align-items:center; justify-content:center;
+    font-family:'Cinzel',serif; font-weight:600; font-size:.98rem;
+  }
+  .phase .num.active{background:var(--gold); color:#060606; border-color:var(--gold);}
+  .phase-body{padding-bottom:8px; border-left:1px solid var(--line); padding-left:18px; margin-left:22px; margin-top:-40px; padding-top:44px;}
+  .phase-body h4{margin-bottom:4px; font-size:1.05rem; color:var(--ink);}
+  .phase-body .result{
+    margin-top:8px; font-size:.85rem; background:rgba(201,168,76,.08); color:var(--gold-soft);
+    padding:8px 12px; border-radius:4px; display:inline-block; border:1px solid var(--gold-dim);
+  }
+
+  details.acc{
+    background:var(--void-card); border:1px solid var(--line); border-radius:var(--radius);
+    margin-top:10px; overflow:hidden;
+  }
+  details.acc summary{
+    cursor:pointer; list-style:none; padding:14px 18px; font-weight:600; color:var(--ink);
+    display:flex; justify-content:space-between; align-items:center; font-size:.95rem;
+  }
+  details.acc summary::-webkit-details-marker{display:none;}
+  details.acc summary::after{content:'+'; font-family:'Cormorant Garamond',serif; font-size:1.4rem; color:var(--gold); flex:0 0 auto;}
+  details.acc[open] summary::after{content:'–';}
+  details.acc[open] summary{border-bottom:1px solid var(--line);}
+  details.acc .acc-body{padding:14px 18px 18px; font-size:.9rem; color:var(--ink-dim);}
+  details.acc .acc-body p{margin:.5em 0;}
+  details.acc .acc-body .say{
+    background:rgba(201,168,76,.06); border-left:2px solid var(--gold); padding:10px 14px;
+    border-radius:0 4px 4px 0; margin:8px 0; font-style:italic; color:var(--ink);
+  }
+
+  .paybox{background:#000; border:1px solid var(--gold-dim); border-radius:8px; padding:28px 30px; margin-top:22px;}
+  .paybox h3{color:var(--gold); margin-top:0; font-family:'Cinzel',serif; font-size:1.1rem; letter-spacing:.03em;}
+  .pay-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:16px;}
+  .pay-card{background:var(--void-card); border:1px solid var(--line); border-radius:6px; padding:16px;}
+  .pay-card .plan{font-weight:600; font-size:.9rem; color:var(--ink); margin-bottom:2px;}
+  .pay-card .amount{font-family:'Cormorant Garamond',serif; font-weight:700; color:var(--gold); font-size:1.15rem; margin-bottom:10px;}
+  .pay-card a.link{
+    display:block; word-break:break-all; font-size:.72rem; color:var(--ink-dim);
+    background:#000; padding:8px 10px; border-radius:4px; text-decoration:none; border:1px solid var(--line);
+  }
+  .pay-card a.link:hover{color:var(--gold-soft); border-color:var(--gold-dim);}
+
+  .dodont{display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:18px;}
+  .dodont .box{border-radius:var(--radius); padding:16px 18px; border:1px solid var(--line);}
+  .dodont .do{background:rgba(201,168,76,.05);}
+  .dodont .dont{background:rgba(150,40,30,.08); border-color:#4A2A24;}
+  .dodont h4{margin-bottom:8px; font-size:.85rem; text-transform:uppercase; letter-spacing:.06em; font-family:'Cinzel',serif;}
+  .dodont .do h4{color:var(--gold-soft);}
+  .dodont .dont h4{color:#D08370;}
+  .dodont ul{margin:0; padding-left:18px; font-size:.87rem; color:var(--ink-dim);}
+  .dodont li{margin-bottom:5px;}
+
+  .callout{
+    background:rgba(201,168,76,.07); border:1px solid var(--gold-dim); border-radius:var(--radius);
+    padding:16px 20px; margin-top:18px; font-size:.9rem; color:var(--ink-dim);
+  }
+  .callout strong{color:var(--gold);}
+
+  footer{
+    padding:34px 44px 60px; max-width:var(--maxw); margin:0 auto;
+    color:var(--ink-faint); font-size:.8rem; display:flex; align-items:center; gap:10px;
+  }
+  footer svg{width:18px; height:18px; opacity:.6;}
+
+  .checklist{list-style:none; padding:0; margin-top:16px;}
+  .checklist li{
+    display:flex; gap:10px; align-items:flex-start; padding:7px 0; font-size:.9rem; color:var(--ink-dim);
+    border-bottom:1px dashed var(--line);
+  }
+  .checklist li:last-child{border-bottom:none;}
+  .checklist .box{flex:0 0 15px; width:15px; height:15px; border:1px solid var(--gold-dim); border-radius:2px; margin-top:2px;}
+
+  @media (max-width:900px){
+    .shell{flex-direction:column;}
+    nav.sidebar{position:relative; width:100%; height:auto; flex:none;}
+    .grid-2, .grid-3, .pay-grid, .dodont{grid-template-columns:1fr;}
+    .hero, section, .topbar, footer{padding-left:22px; padding-right:22px;}
+    .seal-divider{margin-left:22px; margin-right:22px;}
+    .hero h1{font-size:2.1rem;}
+  }
+
+  /* Texto justificado, sin partir palabras */
+  p, li, .lede, .promise, .say, .callout, .acc-body, .card p, .phase-body p{
+    text-align:justify; text-justify:inter-word; hyphens:none; -webkit-hyphens:none;
+  }
+  @media (max-width:900px){ table{display:block; overflow-x:auto;} main{overflow-x:hidden;} }
+  .avatars{display:flex; flex-direction:column; gap:14px; margin-top:18px;}
+  .pay-card .detail{font-size:.78rem; color:var(--ink-dim);}
+  .card p.say{margin-top:10px; background:rgba(201,168,76,.06); border-left:2px solid var(--gold); padding:10px 14px; border-radius:0 4px 4px 0; font-style:italic; color:var(--ink);}
+  .avatars .card p{max-width:none;}
+  .pay-card .link{display:inline-block; margin-top:8px; font-size:.82rem; color:var(--gold); word-break:break-all;}
+
+  /* ===== Layout tipo web ===== */
+  html{scroll-behavior:smooth; scroll-padding-top:76px;}
+  body{background:var(--void);}
+  .site-header{position:sticky; top:0; z-index:100; background:rgba(6,6,6,.92); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px); border-bottom:1px solid var(--line);}
+  .site-header .inner{max-width:1180px; margin:0 auto; padding:14px 28px; display:flex; align-items:center; gap:28px;}
+  .site-header .logo{display:flex; align-items:center; gap:10px; text-decoration:none; flex:0 0 auto;}
+  .site-header .logo svg{width:30px; height:30px;}
+  .site-header .logo .brand-name{font-size:.92rem;}
+  .site-header .logo .client{font-size:.7rem; color:var(--ink-faint); letter-spacing:.08em; text-transform:uppercase; border-left:1px solid var(--line); padding-left:10px; margin-left:4px;}
+  .site-nav{display:flex; gap:4px; overflow-x:auto; scrollbar-width:none; margin-left:auto;}
+  .site-nav::-webkit-scrollbar{display:none;}
+  .site-nav a{color:var(--ink-dim); text-decoration:none; font-size:.82rem; padding:8px 12px; border-radius:4px; white-space:nowrap; transition:.15s;}
+  .site-nav a:hover{color:var(--gold-soft); background:rgba(201,168,76,.06);}
+  .site-nav a.cta{color:#060606; background:var(--gold); font-weight:600;}
+  .site-nav a.cta:hover{background:var(--gold-soft); color:#060606;}
+
+  .hero-web{position:relative; min-height:calc(100vh - 60px); display:flex; align-items:center; overflow:hidden;
+    background:radial-gradient(ellipse 60% 55% at 50% 38%, rgba(201,168,76,.16), transparent 70%), var(--void); border-bottom:1px solid var(--line);}
+  .hero-web .inner{max-width:1180px; margin:0 auto; padding:80px 28px 70px; width:100%; text-align:center;}
+  .hero-web .seal{width:96px; height:96px; margin:0 auto 26px; filter:drop-shadow(0 0 28px rgba(201,168,76,.35));}
+  .hero-web .eyebrow{font-family:'Cinzel',serif; font-size:.74rem; letter-spacing:.24em; text-transform:uppercase; color:var(--gold); margin-bottom:18px;}
+  .hero-web h1{font-family:'Cinzel',serif; font-size:clamp(2.6rem,7vw,5rem); letter-spacing:.04em; color:#fff; margin:0;}
+  .hero-web h1 span{color:var(--gold);}
+  .hero-web .lede{max-width:720px; margin:22px auto 0; font-size:1.12rem; color:var(--ink-dim); text-align:center;}
+  .hero-web .promise{max-width:720px; margin:30px auto 0; font-family:'Cormorant Garamond',serif; font-style:italic; font-size:1.45rem; color:var(--gold-soft); text-align:center;}
+  .hero-web .actions{display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-top:34px;}
+  .btn{display:inline-block; padding:13px 24px; border-radius:4px; font-size:.88rem; font-weight:600; text-decoration:none; letter-spacing:.02em; transition:.15s;}
+  .btn.primary{background:var(--gold); color:#060606;}
+  .btn.primary:hover{background:var(--gold-soft);}
+  .btn.ghost{border:1px solid var(--gold-dim); color:var(--gold-soft);}
+  .btn.ghost:hover{border-color:var(--gold); color:var(--gold);}
+  .stats{display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--line); border:1px solid var(--line); border-radius:8px; overflow:hidden; max-width:900px; margin:54px auto 0;}
+  .stat{background:var(--void-soft); padding:22px 14px; text-align:center;}
+  .stat .n{font-family:'Cinzel',serif; font-size:1.7rem; color:var(--gold); line-height:1.1;}
+  .stat .l{font-size:.76rem; color:var(--ink-dim); margin-top:6px; text-align:center;}
+
+  .chapter{background:#000; border-top:1px solid var(--gold-dim); border-bottom:1px solid var(--line);}
+  .chapter .inner{max-width:1180px; margin:0 auto; padding:56px 28px; display:flex; align-items:baseline; gap:22px;}
+  .chapter .num{font-family:'Cinzel',serif; font-size:3.4rem; color:var(--gold); line-height:1; opacity:.9;}
+  .chapter h2{font-family:'Cinzel',serif; font-size:1.9rem; color:#fff; margin:0; letter-spacing:.04em;}
+  .chapter p{margin:6px 0 0; color:var(--ink-faint); font-size:.9rem;}
+
+  section.band{max-width:none; margin:0; padding:0; border-bottom:1px solid var(--line);}
+  section.band:nth-of-type(even){background:var(--void-soft);}
+  section.band > .wrap{max-width:1000px; margin:0 auto; padding:84px 28px;}
+  section.band h2{font-size:2.3rem;}
+  section.band p{max-width:none;}
+  section.band .section-tag{font-size:.74rem;}
+
+  footer.site-footer{max-width:none; margin:0; padding:0; display:block;}
+  .site-footer{background:#000; border-top:1px solid var(--gold-dim);}
+  .site-footer .inner{max-width:1180px; margin:0 auto; padding:46px 28px; display:flex; align-items:center; gap:14px; color:var(--ink-faint); font-size:.82rem; flex-wrap:wrap;}
+  .site-footer svg{width:26px; height:26px;}
+  .site-footer .brand-name{font-size:.85rem;}
+  .to-top{position:fixed; right:20px; bottom:20px; width:42px; height:42px; border-radius:50%; background:var(--void-card); border:1px solid var(--gold-dim); color:var(--gold); display:flex; align-items:center; justify-content:center; text-decoration:none; font-size:1.1rem; z-index:90;}
+
+  @media (max-width:900px){
+    .site-header .inner{padding:10px 16px; gap:12px;}
+    .site-header .logo .client{display:none;}
+    .hero-web .inner{padding:56px 16px 48px;}
+    .stats{grid-template-columns:repeat(2,1fr);}
+    .chapter .inner{padding:40px 16px; gap:14px;}
+    .chapter .num{font-size:2.4rem;}
+    .chapter h2{font-size:1.4rem;}
+    section.band > .wrap{padding:56px 16px;}
+    section.band h2{font-size:1.75rem;}
+  }
+</style>
+<style>
+  /* Preferencia Closer Search: texto alineado a la izquierda, sin partir palabras */
+  p, li, .lede, .promise, .say, .callout, .acc-body, .card p, .phase-body p{ text-align:left; hyphens:none; -webkit-hyphens:none; }
+  .hero-web .lede, .hero-web .promise{ text-align:center; }
+  .src{font-size:.74rem; color:var(--ink-faint); margin:-4px 0 10px 16px; letter-spacing:.02em;}
+  .src b{color:var(--gold-dim); font-weight:600;}
+  .mc{font-size:.84rem; background:#000; border:1px solid var(--line); border-left:2px solid #6FA8DC; padding:8px 12px; border-radius:0 4px 4px 0; margin:8px 0; color:var(--ink-dim);}
+  .mc b{color:#9CC3E8;}
+  .who{display:inline-block; font-size:.66rem; font-weight:600; letter-spacing:.06em; text-transform:uppercase; padding:2px 8px; border-radius:2px; margin:0 6px 6px 0; border:1px solid var(--line);}
+  .who.y{color:#E8C76A; border-color:#6B5A25; background:rgba(232,199,106,.08);}
+  .who.b{color:#9CC3E8; border-color:#2C4A63; background:rgba(111,168,220,.08);}
+  .who.gr{color:#8FD19E; border-color:#2E5A37; background:rgba(143,209,158,.08);}
+  .pend{display:inline-block; font-size:.68rem; font-weight:600; letter-spacing:.05em; text-transform:uppercase; color:#D08370; border:1px solid #4A2A24; background:rgba(150,40,30,.1); padding:2px 8px; border-radius:2px;}
+  .cuando{font-size:.86rem; color:var(--ink); margin:2px 0 10px;}
+  .cuando b{color:var(--gold-soft);}
+  .next{font-size:.84rem; color:var(--gold-soft); margin-top:12px; padding-top:10px; border-top:1px dashed var(--line);}
+  .qnum{display:inline-flex; width:24px; height:24px; border-radius:50%; border:1px solid var(--gold-dim); color:var(--gold); font-family:'Cinzel',serif; font-size:.78rem; align-items:center; justify-content:center; margin-right:10px; flex:0 0 auto;}
+  details.acc summary .st{display:flex; align-items:center; gap:0; text-align:left;}
+  td.q{font-family:'Cormorant Garamond',serif; font-style:italic; font-size:1.02rem; color:var(--ink);}
+  .matrix td, .matrix th{text-align:center;}
+  .matrix td.label{text-align:left;}
+  .tierA{color:#8FD19E; font-weight:700;} .tierB{color:#E8C76A; font-weight:700;} .tierC{color:#D08370; font-weight:700;}
+  .legend{display:flex; flex-wrap:wrap; gap:10px; margin-top:14px;}
+  .legend .who{margin:0;}
+  .pay-card .who-for{font-size:.82rem; color:var(--ink-dim); margin-top:6px;}
+  .stats.five{grid-template-columns:repeat(5,1fr);}
+  .valb{display:inline-block; font-size:.68rem; font-weight:600; letter-spacing:.05em; text-transform:uppercase; color:#8FD19E; border:1px solid #2E5A37; background:rgba(143,209,158,.08); padding:2px 8px; border-radius:2px;}
+  .guia-frame{margin-top:18px; border:1px solid var(--gold-dim); border-radius:8px; overflow:hidden; background:#000;}
+  .guia-frame iframe{display:block; width:100%; height:85vh; min-height:620px; border:0;}
+  .guia-mobile{display:none; margin-top:16px;}
+  @media (max-width:900px){ .guia-frame{display:none;} .guia-mobile{display:block;} td.label{white-space:normal; min-width:96px;} }
+  .amount .cur{font-family:'DM Sans',sans-serif; font-size:.68rem; font-weight:600; color:#D08370; letter-spacing:.04em; text-transform:uppercase; margin-left:6px; vertical-align:middle;}
+  .qline{display:block; font-style:italic; color:var(--ink);} .qsrc{display:block; font-size:.74rem; color:var(--ink-faint); margin:2px 0 8px;} .qsrc:empty{display:none;}
+  .forw{font-size:.8rem !important; margin-top:8px !important;} .forw b{color:var(--gold-soft);} .card h4 a{color:var(--ink); text-decoration:none;} .card h4 a:hover{color:var(--gold-soft);}
+  @media (max-width:900px){ .stats.five{grid-template-columns:repeat(2,1fr);} }
+</style>
+
+</head>
+<body>
+<header class="site-header"><div class="inner">
+  <a class="logo" href="#top"><svg viewBox="0 0 100 100" fill="none"><polygon points="50,4 90,26 90,74 50,96 10,74 10,26" stroke="#C9A84C" stroke-width="3" fill="#060606"/><polygon points="50,16 79,32 79,68 50,84 21,68 21,32" stroke="#8E763A" stroke-width="1.2" fill="none"/><path d="M33 50 L45 62 L69 36" stroke="#C9A84C" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="brand-name">CLOSER<span class="search"> SEARCH</span></span><span class="client">La Markinaria</span></a>
+  <nav class="site-nav">
+    <a href="#avatar">Cliente</a>
+    <a href="#oferta">Oferta</a>
+    <a href="#embudo">Embudo</a>
+    <a href="#aperturas">Guiones</a>
+    <a href="#objeciones">Objeciones</a>
+    <a href="#proceso">Proceso</a>
+    <a href="#equipo">Equipo</a>
+    <a class="cta" href="#guia">Guía de setteo</a>
+  </nav>
+</div></header>
+
+<div class="hero-web" id="top"><div class="inner">
+  <div class="seal"><svg viewBox="0 0 100 100" fill="none"><polygon points="50,4 90,26 90,74 50,96 10,74 10,26" stroke="#C9A84C" stroke-width="3" fill="#060606"/><polygon points="50,16 79,32 79,68 50,84 21,68 21,32" stroke="#8E763A" stroke-width="1.2" fill="none"/><path d="M33 50 L45 62 L69 36" stroke="#C9A84C" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+  <div class="eyebrow">Informe + Guía Operativa · Closer Search</div>
+  <h1>La <span>Markinaria</span></h1>
+  <p class="lede">Método BVNKER de Genaro Espín: mentoría de 90 días para construir un sistema de marca personal rentable. Dos setters de Closer Search, uno para España y otro para LatAm, abren conversación cada día, cualifican y agendan. Genaro cierra.</p>
+  <div class="promise">"El contenido atrae, pero los sistemas cierran las ventas."</div>
+  <div class="actions"><a class="btn primary" href="#resumen">Empezar</a><a class="btn ghost" href="#guia">Abrir la guía de setteo</a></div>
+  <div class="stats five">
+    <div class="stat"><div class="n">14K</div><div class="l">seguidores en Instagram</div></div>
+    <div class="stat"><div class="n">2</div><div class="l">setters · España y LatAm</div></div>
+    <div class="stat"><div class="n">3</div><div class="l">niveles · VIP, Grupal y Básico</div></div>
+    <div class="stat"><div class="n">10/h</div><div class="l">likes como máximo</div></div>
+    <div class="stat"><div class="n">3 → 5</div><div class="l">agendas al día</div></div>
+  </div>
+</div></div>
+<section id="indice" class="band"><div class="wrap">
+<div class="section-tag">Índice</div>
+<h2>Cómo leer este documento</h2>
+<p>Cuatro capítulos. Cada uno dice para quién es, para ir directo a lo tuyo.</p>
+<div class="grid-2"><div class="card"><div class="pill">Capítulo I · 01–04</div><h4><a href="#avatar">El negocio</a></h4><p>Cliente, lo que siente, la oferta y el programa.</p><p class="forw"><b>Para:</b> Genaro y setters</p></div><div class="card"><div class="pill">Capítulo II · 05–12</div><h4><a href="#embudo">La venta</a></h4><p>Embudo, aperturas, conversación, clasificación, objeciones, agenda, seguimiento y límites.</p><p class="forw"><b>Para:</b> setters · Genaro valida</p></div><div class="card"><div class="pill">Capítulo III · 13–18</div><h4><a href="#equipo">Operativa</a></h4><p>Equipo, herramientas, indicadores, compromisos, arranque, proceso y pendientes.</p><p class="forw"><b>Para:</b> Genaro y dirección del proyecto</p></div><div class="card"><div class="pill">Capítulo IV · 19</div><h4><a href="#guia">La guía de setteo</a></h4><p>La herramienta interactiva con todos los mensajes. Es la fuente única de los textos.</p><p class="forw"><b>Para:</b> setters, mientras conversan</p></div></div>
+</div></section>
+<section id="resumen" class="band"><div class="wrap">
+<div class="section-tag">00 · Resumen</div>
+<h2>Resumen ejecutivo</h2>
+<p>Cuatro ideas para tener claras antes de abrir la primera conversación de esta cuenta.</p>
+<div class="phase"><div class="num active">1</div><div class="phase-body"><h4>Los setters preparan, Genaro cierra</h4><p>El setter abre, cualifica y agenda una <strong style="color:var(--ink)">consultoría de 50 minutos</strong> con Genaro. Nunca da precios ni detalles del programa por chat: si se lo piden, usa la frase de Genaro y el audio Call Proposition.</p></div></div>
+<div class="phase"><div class="num active">2</div><div class="phase-body"><h4>El 90 % de la facturación nace de abrir conversación</h4><p>En el sistema de Genaro, 250–300 aperturas y seguimientos al día dan unas 100 conversaciones y 4–5 llamadas. Las entradas por comentarios dan 20–30 al día y, con suerte, una agenda. Por eso el trabajo central son las tandas de aperturas.</p></div></div>
+<div class="phase"><div class="num active">3</div><div class="phase-body"><h4>Tres niveles de ticket y el esfuerzo donde hay más ticket</h4><p>VIP 1 a 1 (3.500), Grupal (1.500) y Básico (500). El setter clasifica cada lead con 7 señales y su temperatura, y centra el esfuerzo en VIP y Grupal. Regla de Genaro: <em>"si no tiene 500$ para invertir, fuera"</em>.</p></div></div>
+<div class="phase"><div class="num active">4</div><div class="phase-body"><h4>Se escribe como Genaro, nunca con IA</h4><p>Todo lo escribe una persona: <em>"NUNCA, NADA DE IAS NI BOTS"</em>. Mensajes cortos, uno detrás de otro, tuteo y "jajaja". Si preguntan "¿eres Genaro?" o "¿cómo te llamas?": <em>"Somos del equipo de Genaro"</em>. Y nunca más de 10 mensajes de like por hora: Instagram bloquea la cuenta 24 horas.</p></div></div>
+
+</div></section>
+<div class="chapter"><div class="inner"><div class="num">I</div><div><h2>El negocio</h2><p>Cliente, lo que siente, la oferta y el programa</p></div></div></div>
+<section id="avatar" class="band"><div class="wrap">
+<div class="section-tag">01 · Cliente ideal</div>
+<h2>A quién busca La Markinaria</h2>
+<p>Criterios escritos por Genaro y los tres perfiles que se repiten en sus conversaciones reales.</p>
+<table class=""><thead><tr><th>Variable</th><th>Detalle</th></tr></thead><tbody><tr><td class="label">Quién es</td><td>Creadores, coaches, expertos y empresas de servicios que venden o quieren vender a más de 1.000 €. Consultores, asesores, mentores, formadores, infoproductos, empresas B2B de servicios, marketing, campañas de ads.</td></tr><tr><td class="label">Filtro de Genaro</td><td>Dispuestos a dedicar 2 horas al día. Que venda tickets altos (mínimo 300 $, idealmente más de 500/1.000) o que sea un negocio donde se le pueda construir una oferta así.</td></tr><tr><td class="label">Lo imprescindible</td><td>Genaro: <em>"Sobretodo que tenga realmente un dolor/frustración que no sabe y/o quiere resolver"</em>.</td></tr><tr><td class="label">Cómo se ve su perfil</td><td>Buena foto, nicho definido, armonía visual, buena calidad de imagen y sonido (micrófono, iPhone). Sube de forma constante aunque no tenga resultados, o tiene vistas pero no vende. "Ayudo a…" en la bio. Testimonios o vídeos de su metodología. Perfiles privados con "CEO" o "fundador".</td></tr><tr><td class="label">Mercados</td><td>España, Colombia, México, Chile y USA, o personas de estos países que viven fuera.</td></tr><tr><td class="label">Descarte</td><td>Cuba, Venezuela y países muy pobres. Perfiles sin contenido o con contenido cutre hecho con IA. Contenido que se ve muy mal. Productos baratos: artesanía de barrio, cosmética barata, referidos, suplementos, ecommerce, trading, criptos, casinos. Curiosos sin necesidad real.</td></tr></tbody></table><h3>Los 3 perfiles que llegan por Instagram</h3><div class="avatars"><div class="card"><div class="pill">Perfil 1 · chat con Jacobo</div><h4>"El que construye autoridad antes de vender"</h4><p>Entrenador con trabajo presencial que crea contenido con estrategia y quiere una mentoría online high ticket. Cree que necesita 5–10k seguidores antes de vender. Acabó en agenda.</p><p class="say">"Mi sensación de momento es que el crecimiento está siendo bastante lento: pocas visualizaciones y pocos seguidores."</p></div><div class="card"><div class="pill">Perfil 2 · chat con Ismael</div><h4>"El profesional presencial que quiere dar el salto"</h4><p>Entrenador que trabaja en un centro y quiere captar clientes online, pero no encuentra su nicho y le frena la inversión. Llegó recomendado por una conocida. Acabó en agenda.</p><p class="say">"Porque también, ya te digo, me encuentro un poco perdido pero sí que me gustaría hacerlo tarde o temprano."</p></div><div class="card"><div class="pill">Perfil 3 · chat con Nudunmi</div><h4>"La emprendedora que empieza y se pierde en el contenido"</h4><p>Lleva un par de meses con su emprendimiento (salud y skincare), vende sobre todo en físico y no sabe cómo llevarlo a redes sin parecer que vende. Llegó al calendario.</p><p class="say">"La verdad creo que me pierdo entre tantas ideas, no querer parecer una página más de Skincare qué sólo quiere vender y la presión de parecer lo suficientemente profesional"</p></div></div><h3>Perfiles de referencia</h3><p>Clientes ideales que Genaro señala para formar el ojo. <strong style="color:var(--ink)">Nunca se contactan.</strong></p><div class="grid-3"><div class="card"><h4>@jacoboarenaza</h4></div><div class="card"><h4>@santi.ecommerce_</h4></div><div class="card"><h4>@alinpop.fit</h4></div><div class="card"><h4>@jonaristegui.padrereferente</h4></div><div class="card"><h4>@diazillescas</h4></div></div>
+</div></section>
+<section id="psicografia" class="band"><div class="wrap">
+<div class="section-tag">02 · Psicografía</div>
+<h2>Lo que sienten y cómo lo dicen</h2>
+<p>Sacado de los chats reales de Genaro. Las frases se copian tal cual, con sus faltas, porque así habla el lead.</p>
+<div class="grid-2"><div class="card"><div class="pill">Frustraciones</div><h4>Lo que les duele hoy</h4><ul><li>Pocas visualizaciones y pocos seguidores pese a publicar.</li><li>Tener vistas pero no vender.</li><li>No encontrar su nicho y sentir mucha competencia.</li><li>No saber qué contenido subir ni cómo vender sin parecer que venden.</li><li>Falta de tiempo para llevar a la vez el trabajo y las redes.</li></ul></div><div class="card"><div class="pill">Deseos</div><h4>Lo que quieren conseguir</h4><ul><li>Monetizar su conocimiento con un servicio online de ticket alto.</li><li>Un embudo que lleve de "me descubre" a "confía en mí y compra".</li><li>Una segunda opinión de alguien que ya lo ha hecho.</li><li>Hacer algo que "tuviese verdaderamente recompensa" (chat con Ismael).</li></ul></div><div class="card"><div class="pill">Miedo</div><h4>Lo que les frena a dar el paso</h4><ul><li>No saber cuánto tendrán que invertir ni si va a funcionar.</li><li>Parecer "una página más" que solo quiere vender.</li><li>Gastar en material (cámaras, trípodes) sin saber qué necesitan.</li></ul></div><div class="card"><div class="pill">Creencia a reencuadrar</div><h4>Lo que se dicen a sí mismos</h4><ul><li>"Primero seguidores, luego vender." Genaro: con mil seguidores tiene clientes vendiendo tres, cuatro mil euros.</li><li>"El público es perezoso." Genaro: "O es que ha cambiado la forma de comunicar y no te has adaptado?"</li><li>"Hay mucha competencia." Genaro: la competencia es consecuencia de una demanda altísima.</li></ul></div></div><h3>En sus propias palabras</h3><table class=""><thead><tr><th>#</th><th>Lo que dice el lead (literal)</th><th>Chat</th><th>Qué hacer</th></tr></thead><tbody><tr><td class="label">1</td><td class="q">"Mi sensación de momento es que el crecimiento está siendo bastante lento: pocas visualizaciones y pocos seguidores."</td><td>Jacobo</td><td>No le llega gente → audio Problema Comunicación</td></tr><tr><td class="label">2</td><td class="q">"Hasta que no tenga un cierto número de seguidores (5/10k) por ejemplo, no le veo sentido a buscar conversión"</td><td>Jacobo</td><td>Creencia: Genaro le respondió con casos de clientes que venden con mil seguidores</td></tr><tr><td class="label">3</td><td class="q">"Que no se cuánto voy s tener que invertir o si tan siquiera va a funcionar"</td><td>Ismael</td><td>Objeción de inversión (09 · 5)</td></tr><tr><td class="label">4</td><td class="q">"Mucha competencia"</td><td>Ismael</td><td>Objeción "hay mucha competencia" (09 · 6)</td></tr><tr><td class="label">5</td><td class="q">"Actualmente el público es algo desconfiado o perezoso"</td><td>Nudunmi</td><td>Culpa al público (09 · 7)</td></tr><tr><td class="label">6</td><td class="q">"La verdad no sabría cuál podría ser el primer contenido para subir o el tema para introducir esto"</td><td>Nudunmi</td><td>No sabe por dónde empezar (09 · 9)</td></tr><tr><td class="label">7</td><td class="q">"Genaro qué es lo que me podría ofrecer?"</td><td>Raquel</td><td>"¿Qué me puedes ofrecer?" (09 · 2)</td></tr><tr><td class="label">8</td><td class="q">"Es que no tengo claro qué es lo que hacéis"</td><td>Raquel</td><td>"No tengo claro qué hacéis" (09 · 4)</td></tr><tr><td class="label">9</td><td class="q">"Si te parece programamos una reunión y hablamos sin ningún compromiso."</td><td>Jon</td><td>Llega caliente: agenda directa (guía · Conversación)</td></tr></tbody></table><div class="callout"><strong>Idea clave de Genaro:</strong> "funciona mucho más preguntar por lo que les frena, les cuesta o les frustra, empatizar diciendo que todos hemos pasado por ahí y darle algun recurso o mandarle audio de problemas. cuanto más personalizado mucho más tasa de agenda. Es encontrar el dolor, aportar mínimamente y profundizar en el dolor."</div>
+</div></section>
+<section id="oferta" class="band"><div class="wrap">
+<div class="section-tag">03 · Oferta</div>
+<h2>Qué vende La Markinaria</h2>
+<p>Un solo programa, el Método BVNKER, que Genaro presenta en tres niveles según el punto en el que está el lead.</p>
+<div class="paybox"><h3>Los tres niveles</h3><p class="subnote">Referencia interna para clasificar. El precio no se publica y nunca se da por chat: se presenta y se cierra en la llamada con Genaro.</p><div class="pay-grid"><div class="pay-card"><div class="plan">VIP 1 a 1</div><div class="amount">3.500 <span class="cur">moneda pendiente</span></div><div class="who-for">Ya crea contenido decente y tiene algunas ventas o sabe vender. Si además vende tickets de más de 500 $, "es perfecto para el VIP". <b style="color:var(--gold-soft)">Máximo esfuerzo.</b></div></div><div class="pay-card"><div class="plan">Grupal</div><div class="amount">1.500 <span class="cur">moneda pendiente</span></div><div class="who-for">Encaja y tiene dolor real, en una fase más inicial. El mejor encaje para LatAm; Genaro puede aplicar beca en la llamada. <b style="color:var(--gold-soft)">Foco principal.</b></div></div><div class="pay-card"><div class="plan">Básico</div><div class="amount">500 <span class="cur">moneda pendiente</span></div><div class="who-for">Se agenda. Si faltan huecos para VIP y grupal, se mueve para dejarles sitio. Objetivo de Genaro: "que algun dia solo agendemos grupales y vip". <b style="color:var(--gold-soft)">Sin prioridad.</b></div></div></div><p class="subnote" style="margin-top:14px"><span class="pend">Pendiente de Genaro</span> qué incluye exactamente cada nivel, la moneda (€ o $) y las formas de pago.</p></div><h3>El programa</h3><table class=""><thead><tr><th>Elemento</th><th>Detalle</th></tr></thead><tbody><tr><td class="label">Producto</td><td>Método BVNKER: mentoría de 90 días para construir un sistema de marca personal rentable.</td></tr><tr><td class="label">Qué incluye</td><td>Clases semanales grupales, sesiones 1 a 1 con Genaro, espacio en Notion, mapas en Miro, plantillas de guiones, dashboards de KPIs y comunidad en Discord.</td></tr><tr><td class="label">Llamada de venta</td><td>Consultoría personalizada de 50 minutos con Genaro ("Búnker"). La cierra él, en persona.</td></tr><tr><td class="label">Precio</td><td>No se publica. Se presenta y se cierra en llamada.</td></tr></tbody></table><h3>Diferencial y prueba social</h3><div class="grid-2"><div class="card"><div class="pill">Quién es Genaro</div><h4>"Estratega en Serie"</h4><p>Antes, Business Manager en Banco Santander con un equipo de 35 personas. +5M de views generadas y +137 vídeos virales propios y de clientes. Opera en 4 países.</p></div><div class="card"><div class="pill">Resultados de clientes</div><h4>Lo que se puede mencionar</h4><p>Dra. Laura Roa (medicina estética, unos 170 leads al mes), José Díaz de The Wild (vende 5–6 programas high-ticket al mes), The Pepino Brand (preventas antes del lanzamiento). Testimonio fijado en su perfil y destacadas "Victorias".</p></div></div>
+</div></section>
+<section id="programa" class="band"><div class="wrap">
+<div class="section-tag">04 · Programa</div>
+<h2>Método BVNKER en cuatro fases</h2>
+<p>Mentoría de 90 días. Las cuatro fases, tal como las presenta La Markinaria.</p>
+<div class="phase"><div class="num active">1</div><div class="phase-body"><h4>Branding y estrategia</h4></div></div>
+<div class="phase"><div class="num active">2</div><div class="phase-body"><h4>Viralidad (orgánico y ads)</h4></div></div>
+<div class="phase"><div class="num active">3</div><div class="phase-body"><h4>Funnel de conversión</h4></div></div>
+<div class="phase"><div class="num active">4</div><div class="phase-body"><h4>Escalado con autonomía</h4></div></div>
+<p class="subnote">El detalle de cada fase lo explica Genaro en la llamada. El setter no entra en él.</p>
+</div></section>
+<div class="chapter"><div class="inner"><div class="num">II</div><div><h2>La venta</h2><p>Del primer mensaje a la consultoría con Genaro</p></div></div></div>
+<section id="embudo" class="band"><div class="wrap">
+<div class="section-tag">05 · Embudo</div>
+<h2>Del contenido a la llamada</h2>
+<p>El embudo de atracción es de Genaro. Desde la audiencia hasta la agenda, el trabajo pasa a los setters.</p>
+<div class="phase"><div class="num active">1</div><div class="phase-body"><h4>Atracción · Genaro</h4><p>Reels, storytelling de autoridad y anuncios de captación. No se toca: es su especialidad y funciona.</p></div></div>
+<div class="phase"><div class="num active">2</div><div class="phase-body"><h4>Audiencia</h4><p>100–150 seguidores nuevos al día, likes cualificados en sus vídeos, comentarios con CTA y cientos de conversaciones antiguas.</p></div></div>
+<div class="phase"><div class="num active">3</div><div class="phase-body"><h4>Aperturas y seguimientos · setters</h4><p>Bienvenidas, agradecimiento de likes, respuesta a comentarios y reactivaciones, en dos tandas al día por setter.</p></div></div>
+<div class="phase"><div class="num active">4</div><div class="phase-body"><h4>Conversación, agenda y preselling · setters</h4><p>Situación, dolor, aportar valor, clasificar, proponer la llamada, agendar y enviar el vídeo de preselling el día de la cita.</p></div></div>
+<div class="phase"><div class="num active">5</div><div class="phase-body"><h4>Cierre · Genaro</h4><p>Consultoría de 50 minutos, con la ficha del lead leída antes de entrar.</p></div></div>
+<h3>Las cinco entradas</h3><table class=""><thead><tr><th>Entrada</th><th>Volumen por turno</th><th>Dónde se abre</th><th>Temperatura</th></tr></thead><tbody><tr><td class="label">A · Bienvenida a nuevo seguidor</td><td>100–150</td><td>App de Instagram, a mano</td><td>Templada</td></tr><tr><td class="label">B · Like cualificado</td><td>20–30, máx. 10 por hora</td><td>App de Instagram, a mano</td><td>Templada</td></tr><tr><td class="label">C · Comentario con CTA</td><td>Todos</td><td>ManyChat contesta solo; luego bandeja</td><td>La más caliente</td></tr><tr><td class="label">D · Seguidor antiguo cualificado</td><td>Si se acaban las bienvenidas</td><td>App de Instagram, a mano</td><td>Fría</td></tr><tr><td class="label">E · Reactivación de conversaciones</td><td>100–200</td><td>Bandeja de ManyChat (menos de 7 días) o Instagram</td><td>Variable</td></tr></tbody></table><h3>Situación de partida</h3><div class="grid-2"><div class="card"><h4>Lo que ya funciona</h4><ul><li>Un sistema de prospección probado por Genaro: 250–300 aperturas y seguimientos al día dan unas 100 conversaciones y 4–5 llamadas.</li><li>Aperturas, audios y propuesta de llamada testeados y montados en ManyChat e Instagram, organizados por problema.</li><li>Un preselling en vídeo que confirma cita y visionado el mismo día.</li><li>Leads muy cualificados: en llamada la única objeción real suele ser el dinero.</li></ul></div><div class="card"><h4>Dónde suman los setters</h4><ul><li>La prospección dejaba de existir los días que Genaro no sacaba sus dos horas.</li><li>Cientos de conversaciones antiguas sin reactivar.</li><li>El seguimiento a quien encaja pero hoy no tiene presupuesto.</li><li>Separar aperturas y conversaciones para no perder el foco.</li></ul></div></div><div class="callout"><strong>Por qué se caen las agendas, según Genaro:</strong> "Las que no acaban en agenda suele ser porque no cualifiqué bien en chat y a la hora de ofrecer la llamada se caen. No tienen realmente necesidad y son solo curiosos."</div>
+</div></section>
+<section id="aperturas" class="band"><div class="wrap">
+<div class="section-tag">06 · Aperturas</div>
+<h2>Cómo se abre cada conversación</h2>
+<p>Cinco rutas según por dónde llega el lead. Aquí, el resumen; todos los mensajes y sus variantes están en la guía (19).</p>
+<div class="legend"><span class="who y">🟡 Tú escribes</span><span class="who b">🔵 Tú pulsas, ManyChat envía</span><span class="who gr">🟢 ManyChat lo hace solo</span></div><div class="callout"><strong>Regla de Genaro:</strong> "Enviar cada mensaje por separado y seguidos, nunca en un mismo envío. Así no pueden hacer vista previa y aumentamos tasa de apertura." Y si preguntan "¿eres Genaro?" o "¿cómo te llamas?": "Somos del equipo de Genaro".</div><table class=""><thead><tr><th>Ruta</th><th>Cuándo</th><th>Quién hace qué</th><th>Primer mensaje</th><th>Después</th></tr></thead><tbody><tr><td class="label">A · Bienvenida</td><td>Alguien acaba de seguir a Genaro. 100–150 por turno.</td><td><span class="who y">🟡 Tú escribes</span><span class="who b">🔵 Tú pulsas, ManyChat envía</span></td><td><span class="qline">"[nombre] soy Genaro! Mil gracias por seguirme 🙏 viene genial el apoyo!"</span><span class="qsrc">chat con Jon</span></td><td>Nuevos Seguidores Recurso y Conversación</td></tr><tr><td class="label">B · Like</td><td>Perfil MUY cualificado que da like y no le sigue. Máximo 10 por hora.</td><td><span class="who y">🟡 Tú escribes</span><span class="who b">🔵 Tú pulsas, ManyChat envía</span></td><td><span class="qline">"Ey [nombre] soy Genaro!! Mil gracias por el like 🙏 viene genial el apoyo! Te sirvió el video?"</span><span class="qsrc">material de Genaro</span></td><td>Nuevos Seguidores Recurso y Conversación</td></tr><tr><td class="label">C · Comentario</td><td>Ha comentado un vídeo. El lead más caliente: se atiende el primero.</td><td><span class="who gr">🟢 ManyChat lo hace solo</span><span class="who y">🟡 Tú escribes</span></td><td><span class="qline">"te permite verla? dime porfa SI o NO, que a veces falla el link"</span><span class="qsrc">captura de su ManyChat</span></td><td>Conversación</td></tr><tr><td class="label">D · Seguidor antiguo</td><td>Se acabaron los nuevos. Solo los más cualificados.</td><td><span class="who y">🟡 Tú escribes</span><span class="who b">🔵 Tú pulsas, ManyChat envía</span></td><td><span class="qline">"oye es que estaba viendo tu perfil y me ha surgido una duda, te puedo preguntar?"</span><span class="qsrc">material de Genaro</span></td><td>Nuevos Seguidores Recurso y Conversación</td></tr><tr><td class="label">E · Reactivación</td><td>Conversación parada. Menos de 7 días: bandeja de ManyChat. Más de 7: app de Instagram.</td><td><span class="who y">🟡 Tú escribes</span><span class="who b">🔵 Tú pulsas, ManyChat envía</span></td><td><span class="qline">"Ey!? 👀"</span><span class="qsrc">material de Genaro</span><span class="qline">"eyy hace ya mucho que hablamos, como va todo?"</span><span class="qsrc">material de Genaro · más de 7 días</span></td><td>Seguimientos de ManyChat y Conversación</td></tr></tbody></table><p style="margin-top:18px"><a class="btn ghost" href="#guia">Ver todo en la guía · pestaña Aperturas →</a></p>
+</div></section>
+<section id="conversacion" class="band"><div class="wrap">
+<div class="section-tag">07 · Conversación</div>
+<h2>De la respuesta a la agenda</h2>
+<p>Seis pasos y cortos: Genaro dice que "con 5/6 mensajes suele ser suficiente porque la gente se aburre rápido". En la guía, el setter marca lo que ha respondido el lead y le sale el siguiente mensaje, copiado tal cual de los chats de Genaro.</p>
+<table class=""><thead><tr><th>Paso</th><th>Objetivo</th><th>En ManyChat</th><th>La clave, según Genaro</th></tr></thead><tbody><tr><td class="label">1 · Apertura</td><td>Que cuente su negocio</td><td>Nuevos Seguidores Recurso · Preguntas para Recurso personalizado</td><td>"Es encontrar el dolor, aportar mínimamente y profundizar en el dolor."</td></tr><tr><td class="label">2 · Situación</td><td>Cómo vende, a cuánto y desde cuándo</td><td>Cuántas agendas a la semana? · Cuánto estás vendiendo? · Facturación de aquí a tres meses</td><td>"cuantas agendas suele tener a la semana (este es top y más sutil)"</td></tr><tr><td class="label">3 · Dolor</td><td>Qué le frena o le frustra</td><td>Deseo insatisfecho, si no lo ve</td><td>"funciona mucho más preguntar por lo que les frena, les cuesta o les frustra"</td></tr><tr><td class="label">4 · Aportar</td><td>El audio de su problema</td><td>Carpeta Problemas</td><td>"seguir siempre con un mensaje de me explico? o sabes a qué me refiero?"</td></tr><tr><td class="label">5 · Clasificar</td><td>Encaje, ticket, temperatura y si es buen momento</td><td>Paso interno: no se envía nada</td><td>"si no tiene 500$ para invertir, fuera"</td></tr><tr><td class="label">6 · Propuesta</td><td>Proponer la llamada</td><td>Call Proposition</td><td>"solo hay una versión porque funciona que te cagas"</td></tr></tbody></table><div class="callout"><strong>Si el lead se adelanta</strong> (pide la llamada, propone día y hora, pregunta el precio o está de viaje), la guía tiene la respuesta que usó Genaro en cada caso.</div><p style="margin-top:18px"><a class="btn ghost" href="#guia">Ver todo en la guía · pestaña Conversación →</a></p>
+</div></section>
+<section id="clasificacion" class="band"><div class="wrap">
+<div class="section-tag">08 · Clasificación</div>
+<h2>Encaje, ticket y temperatura</h2>
+<p>Tres capas para decidir dónde poner el esfuerzo. El presupuesto no se pregunta: se deduce.</p>
+<h3>1 · Encaje</h3><p>Los criterios del cliente ideal (01). Si el encaje es "No", es descarte aunque puntúe alto.</p><h3>2 · Ticket · siete señales de 0 a 2</h3><table class=""><thead><tr><th>Señal</th><th>0</th><th>1</th><th>2</th></tr></thead><tbody><tr><td class="label">¿Vende ya?</td><td>No</td><td>Poco, fuera del online o para otro</td><td>Sí, con regularidad</td></tr><tr><td class="label">Precio de lo que vende</td><td>Menos de 300 $ o nada</td><td>300–500 $ o se le puede montar una oferta así</td><td>Más de 500 $</td></tr><tr><td class="label">Calidad del contenido</td><td>Floja o cutre</td><td>Aceptable</td><td>Cuidada: nicho claro, micro, buena imagen</td></tr><tr><td class="label">Dolor real</td><td>No se ve</td><td>Lo intuye</td><td>Claro y quiere resolverlo</td></tr><tr><td class="label">Profesional en su sector</td><td>No</td><td>Empezando</td><td>Consolidado, CEO o fundador</td></tr><tr><td class="label">Ha invertido antes en formación o equipo</td><td>No</td><td>Algo</td><td>Sí, claramente</td></tr><tr><td class="label">Mercado</td><td>Poco poder adquisitivo</td><td>LatAm</td><td>España o USA</td></tr></tbody></table><p class="subnote" style="margin-top:10px">11–14: VIP · 7–10: Grupal · 0–6: Básico. <span class="valb">Puntuación validada por Closer Search</span> Los cortes se revisan con datos reales tras las dos primeras semanas.</p><h3>3 · Temperatura</h3><p>Definición validada por Genaro: <b style="color:var(--ink)">caliente</b> = responde rápido, dolor claro, sabe que necesita ayuda, pide la llamada o te dice que sí del tirón · <b style="color:var(--ink)">templado</b> = responde sin urgencia, o rápido pero no queda claro si es su prioridad · <b style="color:var(--ink)">frío</b> = respuestas cortas, visto, "ya veré".</p><h3>Prioridad · ticket × temperatura</h3><table class="matrix"><thead><tr><th></th><th>Caliente</th><th>Templado</th><th>Frío</th></tr></thead><tbody><tr><td class="label">VIP</td><td class="tierA">A</td><td class="tierA">A</td><td class="tierB">B</td></tr><tr><td class="label">Grupal</td><td class="tierA">A</td><td class="tierB">B</td><td class="tierC">C</td></tr><tr><td class="label">Básico</td><td class="tierB">B</td><td class="tierC">C</td><td class="tierC">C</td></tr></tbody></table><div class="grid-3"><div class="card"><div class="pill">A · Atención máxima</div><h4>Calientes o templados y cualificados</h4><p>Genaro: "atención al máximo incluso pedirme que os mande audios sobre la marcha personalizados".</p></div><div class="card"><div class="pill">B · Audios y chat</div><h4>Calientes semicualificados</h4><p>Genaro: "usamos audios regrabados y chat".</p></div><div class="card"><div class="pill">C · Descartar o filtrar</div><h4>No calientes o no cualificados</h4><p>Genaro: "descartar o incluso filtrar por precio directamente en chat, si no tiene 500$ para invertir, fuera".</p></div></div><h3>Cómo deducir la capacidad de inversión</h3><ul><li><b>Cuántas agendas tiene a la semana:</b> la mejor y la más sutil. Audio en ManyChat: Cuántas agendas a la semana?</li><li><b>Qué le falla o le frustra en las ventas:</b> dos en una; dice si vende, cuánto y dónde necesita apoyo.</li><li><b>Cuánto vende:</b> audio Cuánto estás vendiendo?</li><li><b>Si trabaja para otro o para sí mismo;</b> si es para sí mismo, si tiene testimonios.</li><li><b>Sobre un contenido concreto:</b> si le trajo alguna venta.</li></ul>
+</div></section>
+<section id="objeciones" class="band"><div class="wrap">
+<div class="section-tag">09 · Objeciones</div>
+<h2>Lo que dice el lead y cómo contestó Genaro</h2>
+<p>En llamada la única objeción real suele ser el dinero. En el chat salen estas. Aquí va la frase clave de cada respuesta, literal; la secuencia completa y los audios transcritos, en la guía.</p>
+<table class=""><thead><tr><th>#</th><th>Lo que dice el lead</th><th>Cómo respondió Genaro</th></tr></thead><tbody><tr><td class="label">1</td><td class="label">Pregunta el precio</td><td><span class="qline">"Pues mira, sería cero profesional de mi parte decirte un precio por chat porque no conozco bien tu caso y yo trabajo muy personalizado"</span><span class="qsrc">material de Genaro · y después el audio Call Proposition</span></td></tr><tr><td class="label">2</td><td class="label">"¿Qué me puedes ofrecer?"</td><td><span class="qline">"La verdad, no lo sé porque no conozco tu caso"</span><span class="qsrc">chat con Raquel</span><span class="qline">"Tendría que hacerte algunas preguntas"</span><span class="qsrc">chat con Raquel</span></td></tr><tr><td class="label">3</td><td class="label">Pide la llamada sin dar contexto</td><td><span class="qline">"esta semana tengo ya como 7 llamadas asi que no puedo dártela directamente, necesito algo de info primero para ver si tiene sentido"</span><span class="qsrc">chat con Raquel</span></td></tr><tr><td class="label">4</td><td class="label">"No tengo claro qué hacéis"</td><td><span class="qline">"Pues mira te paso un vídeo privado donde lo explico todo bien"</span><span class="qsrc">chat con Raquel · <span class="pend">qué vídeo es: pendiente de Genaro</span></span></td></tr><tr><td class="label">5</td><td class="label">Le preocupa la inversión</td><td><span class="qline">"El tema de la inversión lo podemos hablar tranquilamente en una videollamada"</span><span class="qsrc">audio de Genaro · chat con Ismael</span></td></tr><tr><td class="label">6</td><td class="label">"Hay mucha competencia"</td><td><span class="qline">"la competencia es buena en vuestro sector. Primero porque os obliga a ser mejores. Pero sobre todo porque es una consecuencia de que hay una demanda altísima."</span><span class="qsrc">audio de Genaro · chat con Ismael</span></td></tr><tr><td class="label">7</td><td class="label">Culpa al público</td><td><span class="qline">"Y realmente piensas que el público es perezoso? O es que ha cambiado la forma de comunicar y no te has adaptado? 🤔"</span><span class="qsrc">chat con Nudunmi</span></td></tr><tr><td class="label">8</td><td class="label">Le frena el material o copiar a otros</td><td><span class="qline">"Hay que buscar ese punto de diferenciación que te hace único, que te hace auténtico"</span><span class="qsrc">audio de Genaro · chat con Nudunmi</span></td></tr><tr><td class="label">9</td><td class="label">No sabe por dónde empezar</td><td><span class="qline">"Necesita ahí una estrategia que tenga tres pilares."</span><span class="qsrc">audio de Genaro · chat con Nudunmi</span></td></tr><tr><td class="label">10</td><td class="label">"No es buen momento"</td><td><span class="valb">Validada por Closer Search · no es texto de Genaro</span><span class="qline">"Te entiendo [nombre]. ¿Qué tendría que pasar para que sí fuera buen momento?"</span><span class="qsrc">Genaro no tiene mensaje para esto</span></td></tr><tr><td class="label">11</td><td class="label">Pareja o socio</td><td><span class="valb">Validada por Closer Search · no es texto de Genaro</span><span class="qline">"Total, y tiene todo el sentido. ¿Quieres que esté también en la llamada? Así lo veis juntos."</span><span class="qsrc">Genaro no tiene mensaje para esto</span></td></tr><tr><td class="label">12</td><td class="label">"¿Eres Genaro?" · "¿Cómo te llamas?"</td><td><span class="qline">"Somos del equipo de Genaro"</span><span class="qsrc">decidido por Closer Search</span></td></tr></tbody></table><p style="margin-top:18px"><a class="btn ghost" href="#guia">Ver todo en la guía · pestaña Conversación →</a></p>
+</div></section>
+<section id="agenda" class="band"><div class="wrap">
+<div class="section-tag">10 · Agenda y preselling</div>
+<h2>Del sí a la llamada</h2>
+<p>Una agenda solo cuenta si el lead se presenta. Solo entre 1 y 3 días vista, nunca más, "para generar escasez". Al lead le aparecen las horas en su horario local.</p>
+<table class=""><thead><tr><th>Momento</th><th>Dónde</th><th>Mensaje clave</th><th>Origen</th></tr></thead><tbody><tr><td class="label">Enviar el calendario</td><td>Bandeja · Links › Link Calendario Reserva Call</td><td><span class="qline">"Espera que te paso mi agenda y reservas un hueco cuando mejor te encaje"</span><span class="qsrc"></span></td><td>chat con Ismael</td></tr><tr><td class="label">Quedarse pendiente</td><td>Bandeja</td><td><span class="qline">"Me quedo aquí para confirmarte que la reserva está ok 💪🏻"</span><span class="qsrc"></span></td><td>chat con Ismael</td></tr><tr><td class="label">Si propone él día y hora</td><td>Bandeja</td><td><span class="qline">"Que día te encaja mejor ? La dejamos fijada y así ya te olvidas"</span><span class="qsrc"></span></td><td>chat con Jacobo</td></tr><tr><td class="label">Si le falla el calendario</td><td>Bandeja</td><td><span class="qline">"Sino dime que disponibilidad tienes y creo yo la convocatoria con tu Gmail"</span><span class="qsrc"></span></td><td>chat con Raquel</td></tr><tr><td class="label">Si pregunta por la zona horaria</td><td>Bandeja</td><td><span class="valb">Validada por Closer Search · no es texto de Genaro</span></td><td>Genaro no tiene mensaje para esto</td></tr><tr><td class="label">Tras agendar</td><td>Grupo de WhatsApp y CRM</td><td>Captura del horario y del formulario, de dónde viene (bienvenida, comentario o like) y qué vídeo vio.</td><td>material de Genaro</td></tr><tr><td class="label">Preselling · 1 hora antes</td><td>WhatsApp Business</td><td><span class="qline">"te escribo para recordarte que nos vemos en una horita!"</span><span class="qsrc"></span>y el vídeo de bienvenida, sin vista previa</td><td>material de Genaro</td></tr><tr><td class="label">15 minutos antes</td><td>WhatsApp Business</td><td><span class="qline">"Te veo en 15 min! Acuérdate de entrar desde tu PC para aprovecharlo al máximo"</span><span class="qsrc"></span></td><td>material de Genaro</td></tr><tr><td class="label">No se presenta</td><td>WhatsApp Business</td><td><span class="qline">"Hola [nombre], te estoy esperando, estás bien? te ha pasado algo?"</span><span class="qsrc"></span></td><td>material de Genaro</td></tr><tr><td class="label">Tras varias oportunidades</td><td>WhatsApp Business</td><td><span class="qline">"quedas descartada del proceso de admisión, tanto ahora como en un futuro."</span><span class="qsrc"></span></td><td>material de Genaro · si es hombre: "descartado"</td></tr></tbody></table><p style="margin-top:18px"><a class="btn ghost" href="#guia">Ver todo en la guía · pestaña Agenda y preselling →</a></p>
+</div></section>
+<section id="seguimiento" class="band"><div class="wrap">
+<div class="section-tag">11 · Seguimiento</div>
+<h2>No soltar a nadie</h2>
+<p>Hay leads que tardan días: Jacobo agendó en 6 días y Raquel volvió tras sus vacaciones. Antes de escribir, mira cuándo fue su último mensaje (14).</p>
+<table class=""><thead><tr><th>Situación</th><th>Qué se hace</th><th>Origen</th></tr></thead><tbody><tr><td class="label">Te deja en visto</td><td>"Ey 👀?" o "Ey!? 👀" a mano y, al día siguiente, los seguimientos de ManyChat (3–4 en total, Seguimiento Inicial o con Recurso).</td><td>chat con Nudunmi · material de Genaro</td></tr><tr><td class="label">Tardamos nosotros en responder</td><td>Estructura › Perdón espera como vas con tu contenido.</td><td>material de Genaro</td></tr><tr><td class="label">Está de viaje o de vacaciones</td><td>"pues espero que lo disfrutes!" · "Claro!" · "Disfrútalas y descansa!" y a la vuelta "[nombre]!! Como han ido esas vacaciones !?". Genaro no insistió.</td><td>chat con Raquel</td></tr><tr><td class="label">Se disculpa por tardar</td><td>Audio: "Y no te preocupes por por contestar más tarde que yo soy el primero que está liado y muchas veces tardo en contestar."</td><td>chat con Nudunmi</td></tr><tr><td class="label">Encaja pero hoy no tiene presupuesto</td><td>Regalarle un recurso de Links y decirle que cuando necesite algo pregunte. Apuntar en Retomar cuándo volver.</td><td>material de Genaro</td></tr><tr><td class="label">No encaja</td><td>Despedirse "elegante y amable, ofrecer algún recurso gratis, o resolver dudas y que se empape de nuestro contenido hasta que esté preparado". Etiqueta No califica.</td><td>material de Genaro</td></tr><tr><td class="label">Más de 7 días sin respuesta</td><td>"eyy hace ya mucho que hablamos, como va todo?", una publicación suya o responder a una story, desde la app de Instagram.</td><td>material de Genaro</td></tr></tbody></table><p style="margin-top:18px"><a class="btn ghost" href="#guia">Ver todo en la guía · pestaña Seguimiento →</a></p>
+</div></section>
+<section id="limites" class="band"><div class="wrap">
+<div class="section-tag">12 · Límites</div>
+<h2>Lo que se dice y lo que nunca</h2>
+
+<div class="dodont"><div class="box do"><h4>Se puede decir</h4><ul><li>"Somos del equipo de Genaro", si preguntan quién eres.</li><li>Que en la consultoría se ve su caso en detalle y se lleva claridad.</li><li>La frase de Genaro sobre el precio: "sería cero profesional de mi parte decirte un precio por chat porque no conozco bien tu caso y yo trabajo muy personalizado".</li><li>Los resultados públicos de sus clientes y el testimonio fijado.</li><li>Que hay huecos entre 1 y 3 días vista.</li></ul></div><div class="box dont"><h4>Nunca</h4><ul><li>Usar IA ni bots: "NUNCA, NADA DE IAS NI BOTS".</li><li>Dar precios ni detalles del programa por chat.</li><li>Prometer resultados: Genaro no promete nada.</li><li>Pasar de 10 mensajes de like por hora.</li><li>Agendar a más de 3 días vista.</li><li>Afirmar que eres Genaro si te lo preguntan directamente.</li><li>Mandar todo en un único mensaje: cada mensaje por separado.</li><li>Usar como propias las partes personales de los audios de Genaro.</li></ul></div></div><p class="subnote">Las respuestas marcadas como validadas por Closer Search no salen de los chats de Genaro: las ha aprobado la dirección de Closer Search y se usan tal cual.</p>
+</div></section>
+<div class="chapter"><div class="inner"><div class="num">III</div><div><h2>Operativa</h2><p>Equipo, herramientas, números y arranque</p></div></div></div>
+<section id="equipo" class="band"><div class="wrap">
+<div class="section-tag">13 · Equipo</div>
+<h2>Un setter por mercado, en dos turnos</h2>
+<p>En cuanto se sabe de dónde es el lead, se etiqueta ES o LATAM en ManyChat y lo lleva el setter de ese mercado. Horarios propuestos, a ajustar con Genaro.</p>
+<div class="grid-2"><div class="card"><div class="pill">ES · Setter 1</div><h4>España</h4><ul><li>Turno de mañana y tarde de España.</li><li>Leads de España.</li><li>Preselling por WhatsApp el día de la cita.</li></ul></div><div class="card"><div class="pill">LATAM · Setter 2</div><h4>Latinoamérica</h4><ul><li>De 16:00 a medianoche de España: mañana y tarde de México y Colombia.</li><li>Leads de LatAm, con más cuidado del miedo a invertir.</li><li>Agenda en las horas de tarde que Genaro reserva para LatAm.</li></ul></div></div><h3>La jornada</h3><table class=""><thead><tr><th>Bloque</th><th>Setter España (hora España)</th><th>Setter LatAm (hora España)</th><th>Dónde</th></tr></thead><tbody><tr><td class="label">Tanda de aperturas 1</td><td>9:30 – 10:30 · bienvenidas de la noche y comentarios</td><td>16:00 – 17:00 · bienvenidas y comentarios</td><td>App Instagram</td></tr><tr><td class="label">Conversaciones y seguimientos</td><td>10:30 – 14:00 · likes repartidos (máx. 10/h)</td><td>17:00 – 20:00 · likes repartidos (máx. 10/h)</td><td>ManyChat</td></tr><tr><td class="label">Tanda de aperturas 2</td><td>15:30 – 16:30 · bienvenidas y reactivaciones</td><td>20:00 – 21:00 · bienvenidas y reactivaciones</td><td>App Instagram</td></tr><tr><td class="label">Conversaciones y cierre del turno</td><td>16:30 – 18:30</td><td>21:00 – 00:00</td><td>ManyChat</td></tr><tr><td class="label">Preselling y avisos</td><td>1 hora antes de cada llamada · aviso 15 min antes</td><td>Igual, en la franja de cada lead</td><td>WhatsApp Business</td></tr></tbody></table><div class="callout"><strong>Objetivo por turno, según Genaro:</strong> "Si conseguimos que cada setter en su turno haga unas 100/150 bienvenidas, responda todos los comentarios, haga 20/30 likes cualificados y reactive 100/200 conversaciones con seguimientos, estoy seguro de que agendaremos 4/5 diarias." Si se acaban las bienvenidas, seguidores antiguos cualificados. Despejar la bandeja de Principales y trabajar en la General.</div><h3>Qué hace cada uno</h3><table class=""><thead><tr><th>Tarea</th><th>Setters Closer Search</th><th>Genaro</th></tr></thead><tbody><tr><td class="label">Aperturas diarias</td><td>Sí: bienvenidas, likes y comentarios, con sus atajos y audios</td><td>No</td></tr><tr><td class="label">Seguimientos y reenganche</td><td>Sí, incluidas las conversaciones antiguas</td><td>No</td></tr><tr><td class="label">Conversación y cualificación</td><td>Sí. Nunca precios ni detalles del programa</td><td>Valida los criterios</td></tr><tr><td class="label">Clasificación por ticket</td><td>Sí: VIP, grupal o básico</td><td>Define las señales</td></tr><tr><td class="label">Agendar la consultoría</td><td>Sí, en los huecos que él reserva</td><td>Define los huecos</td></tr><tr><td class="label">Preselling y confirmación</td><td>Sí: vídeo por WhatsApp y aviso 15 min antes</td><td>No</td></tr><tr><td class="label">No presentados</td><td>Sí: mensaje de preocupación y, si no responde, descarte</td><td>No</td></tr><tr><td class="label">Ficha del lead</td><td>Sí: nicho, punto de partida, frustración, qué ha probado, si vende, calidad del contenido y ticket estimado</td><td>La lee antes de entrar</td></tr><tr><td class="label">Llamada de cierre</td><td>No</td><td>Sí</td></tr><tr><td class="label">Reporte</td><td>Diario, semanal y quincenal por WhatsApp</td><td>Llamadas transcritas cada 15 días</td></tr></tbody></table>
+</div></section>
+<section id="herramientas" class="band"><div class="wrap">
+<div class="section-tag">14 · Herramientas</div>
+<h2>Instagram, ManyChat y WhatsApp</h2>
+<p>Los recursos (la clase, los vídeos, las guías, los audios y el calendario) se envían desde ManyChat y se citan por su nombre. Las aperturas se hacen con las respuestas rápidas de Instagram.</p>
+<h3>Las ventanas de Meta</h3><p>Son reglas de Instagram, no nuestras.</p><table class=""><thead><tr><th>Situación</th><th>Qué se puede hacer</th><th>Dónde</th></tr></thead><tbody><tr><td class="label">El lead nunca ha escrito</td><td>Solo mensajes a mano. ManyChat no puede escribirle primero.</td><td>App Instagram</td></tr><tr><td class="label">Escribió hace menos de 24 h</td><td>Todo: audios, automatizaciones y mensajes a mano.</td><td>ManyChat</td></tr><tr><td class="label">Entre 24 h y 7 días</td><td>Solo mensajes escritos por ti.</td><td>Bandeja de ManyChat</td></tr><tr><td class="label">Más de 7 días</td><td>ManyChat ya no puede enviar. Se retoma a mano.</td><td>App Instagram</td></tr></tbody></table><h3>Las carpetas de ManyChat de Genaro</h3><table class=""><thead><tr><th>Carpeta de ManyChat</th><th>Para qué</th><th>Ejemplos</th></tr></thead><tbody><tr><td class="label">Estructura</td><td>Sacar info, entender dolores, deseos y proponer la llamada</td><td>Nuevos Seguidores Recurso · Preguntas para Recurso personalizado · Cuántas agendas a la semana? · Deseo insatisfecho · Perdón espera como vas con tu contenido · Call Proposition</td></tr><tr><td class="label">Problemas</td><td>Reencuadre en audio del problema que vemos o nos cuenta</td><td>Problema Comunicación · Problema Sistema Ventas · Problema diferenciación · Problema oferta</td></tr><tr><td class="label">Links</td><td>Recursos para regalar y el enlace de reserva</td><td>Link Reel Viral · Link Hooks · Link ICP · Link Guia Lanzamiento · Link Combo Links · Link Calendario Reserva Call</td></tr><tr><td class="label">Seguimientos</td><td>3–4 seguimientos con 4 versiones cada uno</td><td>Seguimiento Inicial · Seguimiento con Recurso</td></tr><tr><td class="label">CTAs</td><td>Respuesta automática a comentarios</td><td>Recursos gratis con botones Clase/Guía y Analiza mi caso</td></tr><tr><td class="label">Acciones Etiquetado</td><td>Etiquetar el estado del lead</td><td>Lo explica Genaro al dar acceso</td></tr><tr><td class="label">NC bienvenida ManyChat</td><td><span class="pend">Pendiente de Genaro</span></td><td>—</td></tr></tbody></table><h3>Etiquetas</h3><table class=""><thead><tr><th>Etiqueta</th><th>Tipo</th><th>Cuándo</th><th>Estado</th></tr></thead><tbody><tr><td class="label">Conversación abierta</td><td>Estado</td><td>Ha respondido a la apertura.</td><td>Ya existe</td></tr><tr><td class="label">Caliente</td><td>Estado</td><td>Dolor claro, responde rápido y quiere ayuda.</td><td>Ya existe</td></tr><tr><td class="label">Llamada propuesta</td><td>Estado</td><td>Se le ha propuesto la llamada.</td><td>Ya existe</td></tr><tr><td class="label">Agendada</td><td>Estado</td><td>Ha reservado la llamada.</td><td><span class="pend">Nueva · pendiente de permiso</span></td></tr><tr><td class="label">Asistió</td><td>Estado</td><td>Se presentó a la llamada.</td><td><span class="pend">Nueva · pendiente de permiso</span></td></tr><tr><td class="label">No asistió</td><td>Estado</td><td>No se presentó.</td><td><span class="pend">Nueva · pendiente de permiso</span></td></tr><tr><td class="label">Cerrado ganado</td><td>Estado</td><td>Ha comprado.</td><td>Ya existe</td></tr><tr><td class="label">Seguimiento</td><td>Estado</td><td>Encaja pero hoy no es el momento, o está de viaje.</td><td><span class="pend">Nueva · pendiente de permiso</span></td></tr><tr><td class="label">No califica</td><td>Estado</td><td>No encaja. Genaro: "para borrar al final del dia"; se propone archivar.</td><td>Ya existe</td></tr><tr><td class="label">Respuesta a CTA</td><td>Origen</td><td>Entró por un comentario en un vídeo.</td><td>Ya existe</td></tr><tr><td class="label">ES / LATAM</td><td>Mercado</td><td>Decide qué setter lo lleva.</td><td>Ya existe</td></tr></tbody></table><p class="subnote">Accesos: Genaro crea a cada setter un perfil en ManyChat y en el CRM con su email y le da acceso a Instagram.</p>
+</div></section>
+<section id="indicadores" class="band"><div class="wrap">
+<div class="section-tag">15 · Indicadores</div>
+<h2>Lo que se mide cada día</h2>
+<p>Seis pasos en orden. Cada uno se mide sobre el anterior para ver exactamente dónde se atasca.</p>
+<div class="phase"><div class="num active">1</div><div class="phase-body"><h4>Aperturas</h4><p>Bienvenidas, likes y seguimientos al día.</p></div></div>
+<div class="phase"><div class="num active">2</div><div class="phase-body"><h4>Conversaciones</h4><p>Aperturas que responden.</p></div></div>
+<div class="phase"><div class="num active">3</div><div class="phase-body"><h4>Cualificados</h4><p>Leads que cumplen sus criterios.</p></div></div>
+<div class="phase"><div class="num active">4</div><div class="phase-body"><h4>Agendas</h4><p>Consultorías reservadas.</p></div></div>
+<div class="phase"><div class="num active">5</div><div class="phase-body"><h4>Asistencia</h4><p>% que se presenta.</p></div></div>
+<div class="phase"><div class="num active">6</div><div class="phase-body"><h4>Cierres</h4><p>Ventas de Genaro sobre las agendas.</p></div></div>
+<h3>Referencias de Genaro</h3><table class=""><thead><tr><th>Paso</th><th>Referencia</th><th>Origen</th></tr></thead><tbody><tr><td class="label">Aperturas</td><td>250–300 aperturas y seguimientos al día. Por turno: 100–150 bienvenidas, todos los comentarios, 20–30 likes y 100–200 reactivaciones.</td><td>material de Genaro</td></tr><tr><td class="label">Conversaciones</td><td>Unas 100 al día con ese volumen: aproximadamente 1 de cada 3 aperturas.</td><td>su sistema actual</td></tr><tr><td class="label">Agendas</td><td>4–5 llamadas al día con ese volumen. Objetivo: 3 al día desde el arranque y 5 en un mes.</td><td>su sistema actual y sus objetivos</td></tr><tr><td class="label">Asistencia y cierres</td><td>Sin dato de partida: se miden desde la primera semana.</td><td>—</td></tr></tbody></table><div class="callout"><strong>Objetivos de Genaro:</strong> 3 agendas cualificadas al día desde el arranque y 5 al día en un mes, con ventas cada semana. Además, de cada agenda: si viene de bienvenida, comentario o like y qué vídeo vio, "así puedo mejorar la estrategia de contenidos".</div>
+</div></section>
+<section id="compromisos" class="band"><div class="wrap">
+<div class="section-tag">16 · Compromisos</div>
+<h2>Con la marca de Genaro</h2>
+
+<div class="dodont"><div class="box do"><h4>Lo que sí haremos</h4><ul><li>Escribir siempre como Genaro: su tono, sus palabras, sus audios y sus atajos.</li><li>Responder rápido dentro del horario pactado.</li><li>Pasarle cada lead con su ficha antes de la llamada.</li><li>Enseñarle los números tal y como son, también cuando no salgan.</li></ul></div><div class="box dont"><h4>Lo que nunca haremos</h4><ul><li>Prometer resultados, precios o condiciones que no haya aprobado.</li><li>Mandar mensajes masivos o insistir hasta quemar a un lead.</li><li>Llenarle la agenda de llamadas que no encajan para inflar cifras.</li><li>Usar la información de sus leads fuera de su proyecto.</li></ul></div></div>
+</div></section>
+<section id="arranque" class="band"><div class="wrap">
+<div class="section-tag">17 · Arranque</div>
+<h2>De los recursos a la primera agenda</h2>
+<p>Cuatro fases, con el método de venta de Closer Search aplicado a la voz y la oferta de La Markinaria.</p>
+<div class="phase"><div class="num active">1</div><div class="phase-body"><h4>Días 1 a 3 · Recursos y accesos</h4><p>Audios de ManyChat, atajos de Instagram, audio de propuesta de llamada, vídeo de preselling y las conversaciones que mejor le han funcionado. Accesos a Instagram, ManyChat y WhatsApp Business, y huecos de agenda para España y LatAm.</p><div><span class="result">Recursos recopilados</span> <span class="result">Accesos activos</span> <span class="result">Agenda definida</span> </div></div></div>
+<div class="phase"><div class="num active">2</div><div class="phase-body"><h4>Días 4 a 7 · Guía de setteo a medida</h4><p>La guía interactiva sobre sus recursos: aperturas por entrada, conversación hasta la agenda, reenganche, cualificación y descarte, preselling, no presentados y ficha del lead. Genaro la valida y se forma a los dos setters con ella.</p><div><span class="result">Guía interactiva</span> <span class="result">Validación</span> <span class="result">Formación</span> </div></div></div>
+<div class="phase"><div class="num active">3</div><div class="phase-body"><h4>Semanas 2 a 4 · Operación y primeras agendas</h4><p>Dos tandas de aperturas al día por setter y reenganche de conversaciones antiguas. Videollamadas casi diarias con Genaro al principio para pulir. Reporte diario y semanal por WhatsApp.</p><div><span class="result">3 agendas al día</span> <span class="result">Reenganche</span> <span class="result">Reporte diario</span> </div></div></div>
+<div class="phase"><div class="num active">4</div><div class="phase-body"><h4>Desde el día 30 · Revisión y escalado</h4><p>Con sus llamadas transcritas cada 15 días, se revisan números y objeciones de cada mercado y se ajustan aperturas y guion.</p><div><span class="result">Informe quincenal</span> <span class="result">Ajuste de guion</span> <span class="result">5 agendas al día</span> </div></div></div>
+
+</div></section>
+<section id="proceso" class="band"><div class="wrap">
+<div class="section-tag">18 · Proceso</div>
+<h2>El turno del setter, de principio a fin</h2>
+
+<h3>En cada conversación</h3><ul class="checklist"><li><span class="box"></span><span>Abrir desde la app de Instagram con un mensaje de Genaro, cada mensaje por separado.</span></li><li><span class="box"></span><span>Cuando conteste, lanzar Nuevos Seguidores Recurso y etiquetar Conversación abierta, con Origen y Video.</span></li><li><span class="box"></span><span>Situación y dolor con preguntas cortas; su frustración, con sus palabras, en el campo Frustracion.</span></li><li><span class="box"></span><span>Audio de Problemas y "me explico?".</span></li><li><span class="box"></span><span>Clasificar: encaje, 7 señales y temperatura. Etiquetar ES o LATAM.</span></li><li><span class="box"></span><span>Call Proposition y etiqueta Llamada propuesta.</span></li><li><span class="box"></span><span>Calendario, quedarse pendiente y confirmar la reserva en el chat.</span></li><li><span class="box"></span><span>Captura del horario y del formulario al grupo de WhatsApp, CRM y ficha para Genaro.</span></li><li><span class="box"></span><span>El día de la cita: preselling 1 hora antes y aviso 15 min antes.</span></li></ul><h3>Antes de cerrar el turno</h3><ul class="checklist"><li><span class="box"></span><span>Todos los chats con etiqueta de estado.</span></li><li><span class="box"></span><span>Likes de la última hora por debajo de 10.</span></li><li><span class="box"></span><span>Retomar apuntado en los que quedaron en seguimiento.</span></li><li><span class="box"></span><span>Los "No califica", archivados.</span></li><li><span class="box"></span><span>Reporte del día enviado al grupo.</span></li></ul><h3>Recursos y pendientes</h3><table class=""><thead><tr><th>Pendiente</th><th>Estado</th></tr></thead><tbody><tr><td class="label">Qué incluye cada nivel (VIP, Grupal, Básico), moneda y formas de pago</td><td>Pendiente de Genaro</td></tr><tr><td class="label">Qué recurso de ManyChat es el vídeo privado y cuál la clase (aparecen dos títulos)</td><td>Pendiente de Genaro</td></tr><tr><td class="label">Cómo crean los setters la convocatoria "BUNKER 1a1"</td><td>Pendiente de Genaro</td></tr><tr><td class="label">Si el formulario del Calendly pide el WhatsApp</td><td>Pendiente de Genaro</td></tr><tr><td class="label">Comentarios con CTA: seguir con la automatización o pasar a mano</td><td>Pendiente de decidir</td></tr><tr><td class="label">Qué contiene "NC bienvenida ManyChat"</td><td>Pendiente de Genaro</td></tr><tr><td class="label">Capturas de las carpetas CTAs y Acciones Etiquetado</td><td>Pendiente de Genaro</td></tr><tr><td class="label">Frase para filtrar por 500 $ en el chat y despedida de descarte</td><td>Pendiente de validar</td></tr><tr><td class="label">Archivar en lugar de borrar los "No califica"</td><td>Pendiente de validar</td></tr><tr><td class="label">Permiso para las automatizaciones, etiquetas y campos nuevos del montaje</td><td>Pendiente de Genaro</td></tr><tr><td class="label">Plan multiusuario de ManyChat y emails de los setters</td><td>Pendiente</td></tr><tr><td class="label">Prueba de la ventana de 7 días</td><td>Pendiente</td></tr></tbody></table>
+</div></section>
+<div class="chapter"><div class="inner"><div class="num">IV</div><div><h2>La guía de setteo</h2><p>La herramienta que el setter tiene abierta mientras conversa</p></div></div></div>
+<section id="guia" class="band"><div class="wrap">
+<div class="section-tag">19 · Guía de setteo</div>
+<h2>La guía completa, aquí dentro</h2>
+<p>Es la misma guía interactiva que usan los setters y la fuente única de los mensajes: si cambia un texto, se cambia en la guía. Las secciones 06 a 11 de este documento son su resumen.</p>
+<div class="actions" style="display:flex;gap:12px;flex-wrap:wrap;margin:18px 0 6px"><a class="btn primary" id="openGuia" href="guia.html" target="_blank" rel="noopener">Abrir la guía en su propia página</a></div><div class="callout"><strong>Para trabajar a diario,</strong> usa la guía de La Markinaria publicada aparte: es la que guarda y comparte las fichas entre los dos setters. Las fichas que se guarden desde aquí se quedan solo en el navegador de quien las guarda.</div><div class="guia-mobile card"><h4>En el móvil, mejor en su propia página</h4><p>La guía tiene muchas pestañas y aquí dentro se ve pequeña. Pulsa el botón de arriba para abrirla entera.</p></div><div class="guia-frame"><iframe src="guia.html" title="Guía de setteo La Markinaria" loading="lazy"></iframe></div><h3>Qué hay en cada pestaña</h3><table class=""><thead><tr><th>Pestaña</th><th>Para qué sirve</th></tr></thead><tbody><tr><td class="label">Chuleta</td><td>El orden de una conversación en una página: qué envías, qué etiquetas y qué rellenas en ManyChat.</td></tr><tr><td class="label">Mi jornada</td><td>Objetivos del turno, horarios y el contador de bienvenidas, comentarios, likes (con tope de 10 por hora), reactivaciones y agendas. Genera el reporte del día.</td></tr><tr><td class="label">Reglas</td><td>El límite de likes, las ventanas de Meta y lo que nunca se salta.</td></tr><tr><td class="label">Aperturas</td><td>Las rutas A–E, con cuándo usar cada una y dónde entra ManyChat.</td></tr><tr><td class="label">Conversación</td><td>Eliges lo que ha respondido el lead y te lleva al siguiente paso, con el mensaje recomendado y por qué.</td></tr><tr><td class="label">Clasificación</td><td>Encaje, 7 señales, nivel de ticket y prioridad.</td></tr><tr><td class="label">Agenda</td><td>Calendario, convocatoria, preselling, aviso de 15 minutos y no presentados.</td></tr><tr><td class="label">Seguimiento</td><td>Visto, seguimientos de ManyChat, viajes, más de 7 días y reabrir con su contenido.</td></tr><tr><td class="label">Ficha</td><td>Clasifica al lead, calcula la ventana de Meta y prepara la ficha para Genaro.</td></tr><tr><td class="label">Casos reales · Recursos · Fichas</td><td>Los chats de Genaro transcritos, el mapa de carpetas de ManyChat y las fichas guardadas.</td></tr></tbody></table>
+</div></section>
+<section id="closer-search" class="band"><div class="wrap">
+<div class="section-tag">Quién está detrás</div>
+<h2>Closer Search · Selección de talento de cierre</h2>
+<p>Montamos y dirigimos equipos comerciales para infoproductores y negocios digitales de alto ticket: seleccionamos closers y setters, los formamos en la oferta de cada cliente y dirigimos su día a día. En España y Latinoamérica, siempre en español. La dirección comercial del proyecto la lleva David Martínez-Bayer, con más de 30 años en ventas B2B y B2C.</p>
+<div class="grid-3"><div class="card"><h4>+30 años</h4><p>de experiencia comercial del fundador</p></div><div class="card"><h4>+150 perfiles</h4><p>de closers y setters ya evaluados</p></div><div class="card"><h4>ES · LATAM</h4><p>los dos mercados que cubre el equipo</p></div></div><p class="subnote">Cada perfil pasa por nuestro proceso de selección, El Filtro de los 6, antes de entrar en un proyecto.</p>
+</div></section>
+<footer class="site-footer"><div class="inner"><svg viewBox="0 0 100 100" fill="none"><polygon points="50,4 90,26 90,74 50,96 10,74 10,26" stroke="#C9A84C" stroke-width="3" fill="#060606"/><polygon points="50,16 79,32 79,68 50,84 21,68 21,32" stroke="#8E763A" stroke-width="1.2" fill="none"/><path d="M33 50 L45 62 L69 36" stroke="#C9A84C" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="brand-name">CLOSER<span class="search"> SEARCH</span></span><span>· Informe + Guía Operativa · referencia interna sobre La Markinaria · www.closersearch.com</span></div></footer>
+<a class="to-top" href="#top" aria-label="Volver arriba">↑</a>
+</body>
+</html>
